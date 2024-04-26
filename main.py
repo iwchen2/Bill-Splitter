@@ -20,6 +20,7 @@ def main():
 
     total_tax = float(input("Enter Sales Tax Amount: "))
     total_tip = float(input("Enter Tip Amount: "))
+    total_bill = 0.0
     
     # Calculate each person's total w/ tip + tax
     for p in list_of_people:
@@ -27,8 +28,10 @@ def main():
         tip_amount = percent_of_total * total_tip
         tax_amount = percent_of_total * total_tax
         final_total = p.get_final_total(tax_amount, tip_amount)
+        total_bill += final_total
         print("{} owes {}".format(p.name, p.final_total))
 
+    print("Total: ${}".format(total_bill))
 
 
 if __name__ == "__main__":
